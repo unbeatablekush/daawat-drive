@@ -20,14 +20,12 @@
 
     <form class="booking-form">
 
-        <label>Pickup Address</label>
-        <input type="text" placeholder="Enter your pickup location">
+        <input type="text" id="pickup" placeholder="Enter your pickup location">
 
-        <label>Date</label>
-        <input type="date">
+<input type="date" id="date">
 
-        <label>Time</label>
-        <input type="time">
+<input type="time" id="time">
+
 
         <label>Select Chauffeur Car</label>
         <select>
@@ -39,7 +37,8 @@
         <label>Special Occasion (optional)</label>
         <textarea placeholder="Anniversary, Birthday, Business Dinner..."></textarea>
 
-        <a href="payment.html" class="proceed-btn">Proceed to Payment</a>
+        <button type="button" class="proceed-btn" onclick="validateBooking()">Proceed to Payment</button>
+
 
     </form>
 </section>
@@ -47,6 +46,20 @@
 <footer class="footer">
     <p>© 2026 Daawat Drive. Crafted for Luxury.</p>
 </footer>
+<script>
+function validateBooking() {
+    const pickup = document.getElementById("pickup").value.trim();
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+
+    if (pickup === "" || date === "" || time === "") {
+        alert("Please fill pickup address, date, and time to continue.");
+        return;
+    }
+
+    window.location.href = "payment.html";
+}
+</script>
 
 </body>
 </html>
