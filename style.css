@@ -238,3 +238,59 @@ body {
     resize: none;
     height: 80px;
 }
+.payment-section {
+    padding: 60px;
+    text-align: center;
+}
+
+.payment-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.summary-box {
+    background-color: #141414;
+    max-width: 500px;
+    margin: 0 auto 40px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.summary-box p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.summary-box h3 {
+    margin-top: 20px;
+    color: #cfa75d;
+}
+
+.summary-box hr {
+    border: 0.5px solid #333;
+    margin: 20px 0;
+}
+
+.payment-methods {
+    margin-bottom: 40px;
+}
+
+.payment-methods h4 {
+    margin-bottom: 15px;
+}
+
+.pay-btn {
+    background-color: transparent;
+    border: 1px solid #cfa75d;
+    color: #cfa75d;
+    padding: 10px 25px;
+    border-radius: 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.pay-btn:hover {
+    background-color: #cfa75d;
+    color: #0b0b0b;
+}
