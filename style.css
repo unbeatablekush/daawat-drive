@@ -486,3 +486,24 @@ h1, h2, h3, h4 {
     font-weight: bold;
     color: #cfa75d;
 }
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.remove-btn {
+    background: transparent;
+    border: 1px solid #cfa75d;
+    color: #cfa75d;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background-color: #cfa75d;
+    color: #0b0b0b;
+}

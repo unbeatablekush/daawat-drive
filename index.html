@@ -71,6 +71,15 @@ function closeContact() {
 }
 
 function openCart() {
+    renderCart();
+    document.getElementById("cart-modal").style.display = "block";
+}
+
+function closeCart() {
+    document.getElementById("cart-modal").style.display = "none";
+}
+
+function renderCart() {
     const cart = JSON.parse(localStorage.getItem("daawatCart")) || [];
     const itemsContainer = document.getElementById("cart-modal-items");
     const totalContainer = document.getElementById("cart-total");
@@ -81,23 +90,39 @@ function openCart() {
     if (cart.length === 0) {
         itemsContainer.innerHTML = "<p>Your cart is empty.</p>";
         totalContainer.textContent = "";
-    } else {
-        cart.forEach(item => {
-            const p = document.createElement("p");
-            p.textContent = item.name + " - ₹" + item.price;
-            itemsContainer.appendChild(p);
-            total += item.price;
-        });
-        totalContainer.textContent = "Total: ₹" + total;
+        return;
     }
 
-    document.getElementById("cart-modal").style.display = "block";
+    cart.forEach((item, index) => {
+        const row = document.createElement("div");
+        row.className = "cart-item";
+
+        const text = document.createElement("p");
+        text.textContent = item.name + " - ₹" + item.price;
+
+        const btn = document.createElement("button");
+        btn.textContent = "Remove";
+        btn.className = "remove-btn";
+        btn.onclick = () => removeFromCart(index);
+
+        row.appendChild(text);
+        row.appendChild(btn);
+        itemsContainer.appendChild(row);
+
+        total += item.price;
+    });
+
+    totalContainer.textContent = "Total: ₹" + total;
 }
 
-function closeCart() {
-    document.getElementById("cart-modal").style.display = "none";
+function removeFromCart(index) {
+    let cart = JSON.parse(localStorage.getItem("daawatCart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("daawatCart", JSON.stringify(cart));
+    renderCart();
 }
 </script>
+
 
 
 </body>
