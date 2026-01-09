@@ -367,3 +367,63 @@ h1, h2, h3, h4 {
 .card-btn:hover {
     background-color: #e3be7a;
 }
+.experience-section {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.experience-section h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.experience-subtitle {
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+.rating-overview {
+    margin-bottom: 50px;
+}
+
+.rating-overview h3 {
+    font-size: 32px;
+    color: #cfa75d;
+}
+
+.rating-overview span {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.review-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.review-card {
+    background-color: #141414;
+    width: 300px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.review-card p {
+    font-size: 14px;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.review-card h4 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.review-card span {
+    font-size: 12px;
+    color: #cfa75d;
+}
