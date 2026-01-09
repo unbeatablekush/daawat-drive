@@ -13,8 +13,9 @@
         <div class="logo">Daawat Drive</div>
         <nav>
             <a href="experiences.html">Experiences</a>
-            <a href="#">Restaurants</a>
-            <a href="#">Contact</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="#" onclick="openContact()">Contact</a>
+
         </nav>
     </header>
     
@@ -30,6 +31,29 @@
     <footer class="footer">
         <p>© 2026 Daawat Drive. Crafted for Luxury.</p>
     </footer>
+    <!-- Contact Modal -->
+<div id="contact-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeContact()">&times;</span>
+        <h3>Contact Daawat Drive</h3>
+        <p><strong>Address:</strong><br>
+           5th Floor, Luxury Plaza,<br>
+           New Delhi, India
+        </p>
+        <p><strong>Support Email:</strong><br>
+           support@daawatdrive.com
+        </p>
+    </div>
+</div>
+<script>
+function openContact() {
+    document.getElementById("contact-modal").style.display = "block";
+}
+
+function closeContact() {
+    document.getElementById("contact-modal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
