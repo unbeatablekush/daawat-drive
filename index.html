@@ -10,17 +10,15 @@
 <body>
 
     <header class="navbar">
-        <div class="logo">Daawat Drive</div>
-        <nav>
-            <a href="experiences.html">Experiences</a>
-            <a href="restaurants.html">Restaurants</a>
-            <a href="#" onclick="openContact()">Contact</a>
-            <a href="#" onclick="openCart()">Cart</a>
-</nav>
+    <div class="logo">Daawat Drive</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="experiences.html">Experiences</a>
+        <a href="#" onclick="openCart()">Cart</a>
+        <a href="#" onclick="openContact()">Contact</a>
+    </nav>
+</header>
 
-
-        </nav>
-    </header>
     
     <section class="hero">
         <h1>Arrive in Style. Dine in Royalty.</h1>
@@ -122,8 +120,80 @@ function removeFromCart(index) {
     renderCart();
 }
 </script>
+<!-- Cart Modal -->
+<div id="cart-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeCart()">&times;</span>
+        <h3>Your Order</h3>
 
+        <div id="cart-modal-items"></div>
 
+        <hr>
+
+        <p id="cart-total"></p>
+    </div>
+</div>
+<script>
+function openContact() {
+    document.getElementById("contact-modal").style.display = "block";
+}
+
+function closeContact() {
+    document.getElementById("contact-modal").style.display = "none";
+}
+
+function openCart() {
+    renderCart();
+    document.getElementById("cart-modal").style.display = "block";
+}
+
+function closeCart() {
+    document.getElementById("cart-modal").style.display = "none";
+}
+
+function renderCart() {
+    const cart = JSON.parse(localStorage.getItem("daawatCart")) || [];
+    const itemsContainer = document.getElementById("cart-modal-items");
+    const totalContainer = document.getElementById("cart-total");
+
+    itemsContainer.innerHTML = "";
+    let total = 0;
+
+    if (cart.length === 0) {
+        itemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+        totalContainer.textContent = "";
+        return;
+    }
+
+    cart.forEach((item, index) => {
+        const row = document.createElement("div");
+        row.className = "cart-item";
+
+        const text = document.createElement("p");
+        text.textContent = item.name + " - ₹" + item.price;
+
+        const btn = document.createElement("button");
+        btn.textContent = "Remove";
+        btn.className = "remove-btn";
+        btn.onclick = () => removeFromCart(index);
+
+        row.appendChild(text);
+        row.appendChild(btn);
+        itemsContainer.appendChild(row);
+
+        total += item.price;
+    });
+
+    totalContainer.textContent = "Total: ₹" + total;
+}
+
+function removeFromCart(index) {
+    let cart = JSON.parse(localStorage.getItem("daawatCart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("daawatCart", JSON.stringify(cart));
+    renderCart();
+}
+</script>
 
 </body>
 </html>
