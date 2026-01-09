@@ -294,3 +294,27 @@ body {
     background-color: #cfa75d;
     color: #0b0b0b;
 }
+.confirmation-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.confirmation-section h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.confirmation-section p {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: #ccc;
+}
+
+.confirmation-box {
+    background-color: #141414;
+    max-width: 400px;
+    margin: 0 auto 40px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: left;
+}
