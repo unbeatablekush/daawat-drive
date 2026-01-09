@@ -20,6 +20,7 @@
         <p><strong>Chauffeur:</strong> Luxury Sedan (Round Trip)</p>
 
         <hr>
+        <div id="cart-items"></div>
 
         <p>Food Charges: ₹2,900</p>
         <p>Chauffeur Service: ₹1,500</p>
@@ -42,6 +43,19 @@
 <footer class="footer">
     <p>© 2026 Daawat Drive. Crafted for Luxury.</p>
 </footer>
+<script src="js/cart.js"></script>
+<script>
+    let cart = JSON.parse(localStorage.getItem("daawatCart")) || [];
+    let container = document.getElementById("cart-items");
+    let total = 0;
+
+    cart.forEach(item => {
+        let p = document.createElement("p");
+        p.textContent = item.name + " - ₹" + item.price;
+        container.appendChild(p);
+        total += item.price;
+    });
+</script>
 
 </body>
 </html>
