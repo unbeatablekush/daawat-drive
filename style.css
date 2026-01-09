@@ -475,3 +475,14 @@ h1, h2, h3, h4 {
 .close-btn:hover {
     color: #e3be7a;
 }
+#cart-modal-items p {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #f5f5f5;
+}
+
+#cart-total {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #cfa75d;
+}
